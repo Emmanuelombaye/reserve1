@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
 import { shopLinks, treatmentLinks } from '../lib/site-data'
 
@@ -16,6 +17,7 @@ const mobileExploreLinks = [
   ...midLinks,
   ...endLinks,
   { href: '/medical-team', label: 'Medical Team' },
+  { href: '/patient-center', label: 'Patient Center' },
 ]
 
 interface NavLinkItem {
@@ -35,6 +37,7 @@ function NavDropdown({ label, href, items, align = 'left' }: NavDropdownProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const menuId = useId()
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const pathname = usePathname()
 
   const clearCloseTimer = () => {
     if (closeTimer.current) {
@@ -75,9 +78,11 @@ function NavDropdown({ label, href, items, align = 'left' }: NavDropdownProps) {
     }
   }, [open])
 
+  const isActive = items.some((item) => item.href === pathname) || pathname === href
+
   return (
     <div
-      className={`nav-dropdown ${align === 'right' ? 'nav-dropdown--right' : ''} ${open ? 'is-open' : ''}`}
+      className={`nav-dropdown ${align === 'right' ? 'nav-dropdown--right' : ''} ${open ? 'is-open' : ''} ${isActive ? 'is-active' : ''}`}
       ref={rootRef}
       onMouseEnter={openMenu}
       onMouseLeave={scheduleClose}
@@ -95,17 +100,21 @@ function NavDropdown({ label, href, items, align = 'left' }: NavDropdownProps) {
         <span className="nav-dropdown__chevron" aria-hidden="true" />
       </Link>
       <div id={menuId} className="nav-dropdown__menu" role="menu">
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            role="menuitem"
-            onClick={() => setOpen(false)}
-            onFocus={openMenu}
-          >
-            {item.label}
-          </Link>
-        ))}
+        {items.map((item) => {
+          const itemActive = pathname === item.href
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              role="menuitem"
+              className={itemActive ? 'is-active' : ''}
+              onClick={() => setOpen(false)}
+              onFocus={openMenu}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
@@ -114,6 +123,8 @@ function NavDropdown({ label, href, items, align = 'left' }: NavDropdownProps) {
 export default function SiteHeader({ variant = 'default' }: { variant?: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18)
@@ -121,6 +132,10 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     if (!menuOpen) return undefined
@@ -133,11 +148,29 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
     html.style.overflow = 'hidden'
     body.style.overflow = 'hidden'
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+
     return () => {
       html.style.overflow = prevHtmlOverflow
       body.style.overflow = prevBodyOverflow
+      window.removeEventListener('keydown', handleKeyDown)
     }
   }, [menuOpen])
+
+  const filteredTreatments = treatmentLinks.filter((item) =>
+    !searchQuery.trim() || item.label.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const filteredShop = shopLinks.filter((item) =>
+    !searchQuery.trim() || item.label.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const filteredExplore = mobileExploreLinks.filter((item) =>
+    !searchQuery.trim() || item.label.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <div
@@ -169,17 +202,23 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
 
           <nav className="nav" aria-label="Primary">
             <NavDropdown label="Treatments" href="/#treatments" items={treatmentLinks} />
-            {midLinks.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
+            {midLinks.map((item) => {
+              const active = pathname === item.href
+              return (
+                <Link key={item.href} href={item.href} className={active ? 'is-active' : ''}>
+                  {item.label}
+                </Link>
+              )
+            })}
             <NavDropdown label="Shop" href="/supplements" items={shopLinks} align="right" />
-            {endLinks.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
+            {endLinks.map((item) => {
+              const active = pathname === item.href
+              return (
+                <Link key={item.href} href={item.href} className={active ? 'is-active' : ''}>
+                  {item.label}
+                </Link>
+              )
+            })}
           </nav>
 
           <div className="header__actions">
@@ -212,44 +251,107 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
       >
         <button type="button" className="mobile-nav__scrim" aria-label="Close menu" onClick={() => setMenuOpen(false)} />
         <div className="mobile-nav__sheet">
-          <p className="mobile-nav__label">Treatments</p>
-          <nav className="mobile-nav__links">
-            {treatmentLinks.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <p className="mobile-nav__label">Shop</p>
-          <nav className="mobile-nav__links">
-            <Link href="/supplements" onClick={() => setMenuOpen(false)}>
-              All Supplements
-            </Link>
-            {shopLinks
-              .filter((item) => item.href !== '/supplements')
-              .map((item) => (
-                <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                  {item.label}
-                </Link>
-              ))}
-          </nav>
-          <p className="mobile-nav__label">Explore</p>
-          <nav className="mobile-nav__links">
-            {mobileExploreLinks.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/patient-center" onClick={() => setMenuOpen(false)}>
-              Patient Center
-            </Link>
-          </nav>
+          {/* Quick Search inside mobile menu */}
+          <div className="mobile-nav__search">
+            <svg className="mobile-nav__search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M9 17A8 8 0 109 1a8 8 0 000 16zM19 19l-4.35-4.35"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search treatments, supplements, pricing..."
+              className="mobile-nav__search-input"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="mobile-nav__search-clear"
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
+          {filteredTreatments.length > 0 && (
+            <>
+              <p className="mobile-nav__label">Care Programs</p>
+              <nav className="mobile-nav__links">
+                {filteredTreatments.map((item) => {
+                  const active = pathname === item.href
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`mobile-nav__link-item ${active ? 'is-active' : ''}`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="mobile-nav__link-title">{item.label}</span>
+                      <span className="mobile-nav__badge">Rx Care</span>
+                    </Link>
+                  )
+                })}
+              </nav>
+            </>
+          )}
+
+          {filteredShop.length > 0 && (
+            <>
+              <p className="mobile-nav__label">Wellness &amp; Supplements</p>
+              <nav className="mobile-nav__links">
+                {filteredShop.map((item) => {
+                  const active = pathname === item.href
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`mobile-nav__link-item ${active ? 'is-active' : ''}`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="mobile-nav__link-title">{item.label}</span>
+                      <span className="mobile-nav__badge mobile-nav__badge--shop">Shop</span>
+                    </Link>
+                  )
+                })}
+              </nav>
+            </>
+          )}
+
+          {filteredExplore.length > 0 && (
+            <>
+              <p className="mobile-nav__label">Information &amp; Portal</p>
+              <nav className="mobile-nav__links">
+                {filteredExplore.map((item) => {
+                  const active = pathname === item.href
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`mobile-nav__link-item ${active ? 'is-active' : ''}`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="mobile-nav__link-title">{item.label}</span>
+                      <span className="mobile-nav__arrow" aria-hidden="true">→</span>
+                    </Link>
+                  )
+                })}
+              </nav>
+            </>
+          )}
+
           <div className="mobile-nav__actions">
+            <Link href="/check-eligibility" className="btn btn--primary btn--lg" onClick={() => setMenuOpen(false)}>
+              Check Eligibility →
+            </Link>
             <Link href="/patient-login" className="btn btn--outline btn--lg" onClick={() => setMenuOpen(false)}>
               Patient Login
-            </Link>
-            <Link href="/check-eligibility" className="btn btn--primary btn--lg" onClick={() => setMenuOpen(false)}>
-              Check Eligibility
             </Link>
           </div>
         </div>
@@ -257,3 +359,4 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
     </div>
   )
 }
+
