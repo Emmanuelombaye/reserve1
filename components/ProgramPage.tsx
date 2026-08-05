@@ -322,7 +322,7 @@ export default function ProgramPage({ program }: { program: ProgramProps }) {
           <section className="container" data-reveal="up">
             <div className="quality__supplement-note">
               <p>
-                Nexa Rx offers prescription therapies for eligible patients and does not sell research-use-only products.
+                RSRV offers prescription therapies for eligible patients and does not sell research-use-only products.
                 Compounded medications are not FDA-approved as finished branded products.
               </p>
               <p style={{ marginTop: '0.75rem' }}>

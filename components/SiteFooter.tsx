@@ -13,23 +13,24 @@ export default function SiteFooter() {
     <>
       <div className="brand-bottom-banner" aria-hidden="true">
         <div className="container brand-bottom-banner__inner">
-          <span className="brand-bottom-banner__text">CARE THAT CONNECTS. RESULTS THAT LAST.</span>
+          <span className="brand-bottom-banner__text">THE STANDARD, EXTENDED.</span>
           <span className="brand-bottom-banner__dot" />
         </div>
       </div>
       <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand-col">
-          <Link href="/" className="footer__logo-wrap" aria-label="Nexa Rx home">
+          <Link href="/" className="footer__logo-wrap" aria-label="RSRV home">
             <img
-              src="/brand/primary-logo.webp"
-              alt="Nexa Rx - Personal Care. Real Results."
-              width={160}
-              height={50}
+              src="/brand/logos/rsrv-wordmark-dark.svg"
+              alt="RSRV"
+              width={120}
+              height={36}
               className="footer__logo-img"
             />
           </Link>
-          <p className="footer__tag">Licensed clinical care. Clear pricing. Qualified U.S. pharmacy fulfillment.</p>
+          <p className="footer__endorsement">BY RESERVE MOLECULAR</p>
+          <p className="footer__tag">Clinician-directed. US-compounded. Tested and verified.</p>
         </div>
         <div className="footer__col">
           <h4>Care</h4>
@@ -64,7 +65,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="container footer__bottom">
-        <p>&copy; {new Date().getFullYear()} Nexa Rx. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Reserve Molecular. All rights reserved.</p>
         <nav className="footer__legal-links" aria-label="Legal">
           {legalLinks.map((item) => (
             <Link key={item.href} href={item.href}>
@@ -73,7 +74,7 @@ export default function SiteFooter() {
           ))}
         </nav>
         <p className="footer__legal">
-          Nexa Rx is a telehealth platform connecting eligible patients with licensed clinicians and qualified U.S.
+          RSRV is a telehealth platform connecting eligible patients with licensed clinicians and qualified U.S.
           pharmacy partners. Compounded medications are not FDA-approved as finished branded products. Prescription
           treatment is not guaranteed; eligibility and treatment decisions are made by a licensed clinician.
           Availability varies by state and treatment. Dietary supplements are non-prescription products and are sold

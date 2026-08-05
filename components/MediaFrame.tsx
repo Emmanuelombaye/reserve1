@@ -23,7 +23,7 @@ export default function MediaFrame({
   ratio = '4 / 3',
   aspectRatio,
   caption,
-  tone = 'light',
+  tone = 'dark',
   className = '',
   reveal,
 }: MediaFrameProps) {

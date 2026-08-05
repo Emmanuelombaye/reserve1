@@ -19,7 +19,7 @@ export default function PatientCenter() {
 
   useEffect(() => {
     try {
-      setSession(JSON.parse(localStorage.getItem('nexa_session_v2') || 'null'))
+      setSession(JSON.parse(localStorage.getItem('rsrv_session_v1') || 'null'))
       setDraft(JSON.parse(localStorage.getItem('nexa_intake_draft_v2') || 'null'))
     } catch {
       setSession(null)

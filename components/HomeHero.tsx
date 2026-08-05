@@ -82,12 +82,12 @@ export default function HomeHero() {
       <div className="container hero__shell">
         <div className="hero__copy">
           <p className="eyebrow hero-anim" style={{ '--hero-delay': '0ms' } as React.CSSProperties}>
-            PERSONALIZED CARE. CLINICIAN-GUIDED OPTIONS.
+            RESERVE MOLECULAR — CLINICIAN-DIRECTED
           </p>
           <h1 className="hero-anim" style={{ '--hero-delay': '80ms' } as React.CSSProperties}>
-            Your care.
+            The standard,
             <br />
-            Your way.
+            extended.
           </h1>
           <p className="lede hero-anim" style={{ '--hero-delay': '150ms' } as React.CSSProperties}>
             Connect online with a licensed clinician for medical weight management, hormone health, and select

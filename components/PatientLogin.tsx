@@ -18,7 +18,7 @@ export default function PatientLogin() {
       setError('Enter email and a password (4+ characters).')
       return
     }
-    localStorage.setItem('nexa_session_v2', JSON.stringify({ email, at: new Date().toISOString() }))
+    localStorage.setItem('rsrv_session_v1', JSON.stringify({ email, at: new Date().toISOString() }))
     router.push('/patient-center')
   }
 
@@ -34,16 +34,14 @@ export default function PatientLogin() {
           quality={70}
         />
         <div className="auth__overlay">
-          <p className="logo__word logo--on-dark">
-            Nexa <span className="logo__rx">Rx</span>
-          </p>
+          <p className="logo__word logo--on-dark">RSRV</p>
           <h1>Your care, in one place.</h1>
-          <p>Licensed clinical care with clear pricing and discreet delivery.</p>
+          <p>Clinician-directed care with clear pricing and discreet delivery.</p>
         </div>
       </div>
       <div className="auth__panel">
         <Link href="/" className="auth__back">
-          ← Back to Nexa Rx
+          ← Back to RSRV
         </Link>
         <h2>Patient Login</h2>
         <p className="auth__hint">

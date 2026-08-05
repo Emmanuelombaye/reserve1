@@ -9,7 +9,7 @@ export default function PricingBeforePay() {
             <p className="eyebrow">Before you pay</p>
             <h2>Every charge appears in your enrollment summary.</h2>
             <p className="lede">
-              Like leading telehealth platforms, Nexa Rx shows a full itemized breakdown before you confirm enrollment —
+              Like leading telehealth platforms, RSRV shows a full itemized breakdown before you confirm enrollment —
               not after.
             </p>
           </div>

@@ -157,12 +157,12 @@ export default function SiteHeader({ variant = 'default' }: { variant?: string }
 
       <header className="header">
         <div className="container header__inner">
-          <Link href="/" className="logo-brand-img-wrap" aria-label="Nexa Rx home" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="logo-brand-img-wrap" aria-label="RSRV home" onClick={() => setMenuOpen(false)}>
             <img
-              src="/brand/primary-logo.webp"
-              alt="Nexa Rx - Personal Care. Real Results."
-              width={170}
-              height={48}
+              src="/brand/logos/rsrv-wordmark-dark.svg"
+              alt="RSRV"
+              width={120}
+              height={36}
               className="logo-brand-img"
             />
           </Link>

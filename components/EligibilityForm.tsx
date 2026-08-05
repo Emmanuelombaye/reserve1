@@ -460,7 +460,7 @@ export default function EligibilityForm() {
                     />
                     <div className="flow-checkbox-text">
                       <span>
-                        I authorize Nexa Rx&apos;s affiliated clinicians to securely review my medical records and prescribe the necessary medication if candidate. *
+                        I authorize RSRV&apos;s affiliated clinicians to securely review my medical records and prescribe the necessary medication if candidate. *
                       </span>
                     </div>
                   </label>
