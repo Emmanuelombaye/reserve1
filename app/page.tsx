@@ -11,10 +11,11 @@ import { pageMetadata } from '../lib/seo'
 const programImagesRecord: Record<string, { src: string; alt: string; width: number; height: number }> = programImages
 
 export const metadata = pageMetadata({
-  title: 'Nexa Rx | Personalized Telehealth Care',
+  title: 'RSRV',
   description:
-    'Connect online with licensed clinicians for medical weight management, hormone health, and select prescription therapies. Availability varies by state.',
+    'Clinician-directed protocols. Compounded in the US, one patient at a time.',
   path: '/',
+  image: '/images/hero-home-desktop.webp',
 })
 
 const stepIcons = [
@@ -70,7 +71,7 @@ export default function HomePage() {
               Modern care should be <em>personal, clear, and clinically guided.</em>
             </h2>
             <p>
-              Nexa Rx connects eligible adults with licensed clinicians for medical weight management, hormone health,
+              RSRV connects eligible adults with licensed clinicians for medical weight management, hormone health,
               and select prescription therapies—with transparent pricing and ongoing support.
             </p>
             <div className="proof__metrics">
@@ -191,7 +192,7 @@ export default function HomePage() {
               <p className="eyebrow">Quality &amp; Safety</p>
               <h2>Clear standards for every part of care.</h2>
               <p className="lede">
-                Nexa Rx connects patients with licensed clinicians and qualified U.S. pharmacy partners, and we explain
+                RSRV connects patients with licensed clinicians and qualified U.S. pharmacy partners, and we explain
                 pricing and next steps before enrollment.
               </p>
               <ul className="check-list">
@@ -302,8 +303,8 @@ export default function HomePage() {
         <section className="brand-band">
           <div className="container brand-band__grid">
             <div>
-              <p className="eyebrow eyebrow--teal">Care that connects.</p>
-              <h2>Personal, clear, and clinically guided.</h2>
+              <p className="eyebrow eyebrow--teal">Reserve, deepened.</p>
+              <h2>The standard, extended.</h2>
               <p>
                 Licensed clinicians, transparent pricing, and qualified U.S. pharmacy fulfillment — so you can
                 understand your options before treatment begins.

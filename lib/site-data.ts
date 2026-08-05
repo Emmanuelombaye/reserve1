@@ -1,4 +1,4 @@
-export const siteUrl = 'https://nexamd.com'
+export const siteUrl = 'https://reservemolecular.com'
 
 export const treatmentLinks = [
   { href: '/medical-weight-loss', label: 'Medical Weight Loss' },
@@ -23,7 +23,7 @@ export const pricingModel = {
   eyebrow: 'How pricing works',
   headline: 'See every charge before you enroll.',
   lede:
-    'Nexa Rx separates clinical program care from partner pharmacy fulfillment. You review a full itemized summary — due today, recurring terms, labs, and supplies — before confirming enrollment.',
+    'RSRV separates clinical program care from partner pharmacy fulfillment. You review a full itemized summary — due today, recurring terms, labs, and supplies — before confirming enrollment.',
   principles: [
     {
       title: '$0 to begin',
@@ -201,7 +201,7 @@ export const programs = [
     priceNote,
     highlights: [
       'Prescription-only peptide therapies for eligible patients',
-      'Nexa Rx does not sell research-use-only products',
+      'RSRV does not sell research-use-only products',
       'Fulfilled through applicable licensed U.S. pharmacy channels',
     ],
     medicationStatus: {
@@ -452,7 +452,7 @@ export const medicalTeamRoles = [
   },
   {
     title: 'Pharmacy partnerships',
-    text: 'Prescriptions are sent to appropriately licensed U.S. pharmacies. Nexa Rx is not the dispensing pharmacy.',
+    text: 'Prescriptions are sent to appropriately licensed U.S. pharmacies. RSRV is not the dispensing pharmacy.',
   },
   {
     title: 'Privacy & compliance',
@@ -462,12 +462,12 @@ export const medicalTeamRoles = [
 
 export const faqItems = [
   {
-    q: 'Are Nexa Rx peptide therapies prescription-only?',
-    a: 'Yes. Peptide therapies offered through the Nexa Rx clinical program require a medical evaluation and a valid prescription from a licensed clinician.',
+    q: 'Are RSRV peptide therapies prescription-only?',
+    a: 'Yes. Peptide therapies offered through the RSRV clinical program require a medical evaluation and a valid prescription from a licensed clinician.',
   },
   {
-    q: 'Does Nexa Rx sell research-use-only peptides?',
-    a: 'No. Nexa Rx does not sell research-use-only products. Peptide therapies offered through the clinical program require a medical evaluation and prescription and are dispensed for eligible patients through the applicable pharmacy channel.',
+    q: 'Does RSRV sell research-use-only peptides?',
+    a: 'No. RSRV does not sell research-use-only products. Peptide therapies offered through the clinical program require a medical evaluation and prescription and are dispensed for eligible patients through the applicable pharmacy channel.',
   },
   {
     q: 'Are compounded peptide therapies FDA-approved?',
@@ -483,7 +483,7 @@ export const faqItems = [
   },
   {
     q: 'Which costs are included in the monthly price?',
-    a: 'The pricing page shows how Nexa Rx separates clinical program care from partner pharmacy costs. Your enrollment summary lists due today, recurring amount, consultation terms, medication, labs, supplies, shipping, follow-up visits, clinical messaging, and refill support before you pay.',
+    a: 'The pricing page shows how RSRV separates clinical program care from partner pharmacy costs. Your enrollment summary lists due today, recurring amount, consultation terms, medication, labs, supplies, shipping, follow-up visits, clinical messaging, and refill support before you pay.',
   },
   {
     q: 'Is a prescription guaranteed?',
@@ -498,7 +498,7 @@ export const faqItems = [
     a: 'No. Dietary supplements are non-prescription products sold separately from medical treatment. Purchasing supplements does not affect your clinical eligibility or prescribing decisions.',
   },
   {
-    q: 'Can I buy supplements without becoming a Nexa Rx patient?',
+    q: 'Can I buy supplements without becoming a RSRV patient?',
     a: 'Yes. Supplements are available through our Shop without a clinical intake or prescription.',
   },
   {
@@ -512,13 +512,13 @@ export const faqItems = [
 ]
 
 const supplementContact = {
-  questions: 'supplements@nexamd.com',
-  adverseEvents: 'adverse-events@nexamd.com',
+  questions: 'supplements@reservemolecular.com',
+  adverseEvents: 'adverse-events@reservemolecular.com',
   phone: '775-262-9279',
 }
 
 const supplementManufacturer = {
-  name: 'Nexa Wellness Labs, LLC',
+  name: 'Reserve Molecular',
   address: '1200 Harbor Center Dr, Suite 400, Tampa, FL 33602',
 }
 

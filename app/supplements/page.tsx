@@ -10,8 +10,8 @@ import { pageMetadata } from '../../lib/seo'
 const supplementImagesRecord: Record<string, { src: string; alt: string; width: number; height: number }> = supplementImages
 
 export const metadata = pageMetadata({
-  title: 'Supplements Shop | Nexa Rx',
-  description: 'Shop Nexa Rx dietary supplements in a separate non-prescription lane with transparent recurring terms.',
+  title: 'Supplements Shop',
+  description: 'Shop RSRV dietary supplements in a separate non-prescription lane with transparent recurring terms.',
   path: '/supplements',
   image: media.heroProduct.src,
 })

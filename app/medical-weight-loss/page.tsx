@@ -6,7 +6,7 @@ import { pageMetadata } from '../../lib/seo'
 const program = programs.find((item) => item.slug === 'medical-weight-loss')!
 
 export const metadata = pageMetadata({
-  title: 'Medical Weight Loss | Nexa Rx',
+  title: 'Medical Weight Loss',
   description: 'Clinician-guided weight management with transparent pricing and clear eligibility steps.',
   path: '/medical-weight-loss',
   image: media.weightLoss.src,

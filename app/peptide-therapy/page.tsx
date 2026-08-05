@@ -6,7 +6,7 @@ import { pageMetadata } from '../../lib/seo'
 const program = programs.find((item) => item.slug === 'peptide-therapy')!
 
 export const metadata = pageMetadata({
-  title: 'Peptide Therapy | Nexa Rx',
+  title: 'Peptide Therapy',
   description:
     'Clinician-prescribed peptide therapies for eligible patients. No research-use-only products. Clear disclosures before enrollment.',
   path: '/peptide-therapy',

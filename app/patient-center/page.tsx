@@ -3,7 +3,7 @@ import { pageMetadata } from '../../lib/seo'
 
 export const metadata = {
   ...pageMetadata({
-    title: 'Patient Center | Nexa Rx',
+    title: 'Patient Center',
     description: 'Patient center for review status, next steps, and care program tracking.',
     path: '/patient-center',
   }),

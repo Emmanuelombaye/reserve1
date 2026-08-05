@@ -4,9 +4,9 @@ import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Supplement Terms | Nexa Rx Shop',
+  title: 'Supplement Terms',
   description:
-    'Terms for Nexa Rx dietary supplement purchases, including recurring billing, shipping, returns, and adverse-event reporting.',
+    'Terms for RSRV dietary supplement purchases, including recurring billing, shipping, returns, and adverse-event reporting.',
   path: '/supplement-terms',
 })
 
@@ -21,7 +21,7 @@ export default function Page() {
           <p className="eyebrow">Shop</p>
           <h1>Supplement Terms</h1>
           <p className="lede">
-            These terms apply to dietary supplement purchases in the Nexa Rx Shop. Supplements are non-prescription
+            These terms apply to dietary supplement purchases in the RSRV Shop. Supplements are non-prescription
             products sold separately from clinical care.
           </p>
           <p className="hero__stats-note">Last updated: July 22, 2026</p>
@@ -31,7 +31,7 @@ export default function Page() {
           <article>
             <h2>1. Separate from clinical care</h2>
             <p>
-              Buying supplements does not make you a Nexa Rx clinical patient and does not affect eligibility or
+              Buying supplements does not make you a RSRV clinical patient and does not affect eligibility or
               prescribing decisions. Supplement orders use commerce checkout — not the clinical portal.
             </p>
           </article>
@@ -76,8 +76,8 @@ export default function Page() {
           <article>
             <h2>7. Adverse events</h2>
             <p>
-              Report suspected adverse events to <a href="mailto:adverse-events@nexamd.com">adverse-events@nexamd.com</a>{' '}
-              or call 775-262-9279. Product questions: <a href="mailto:supplements@nexamd.com">supplements@nexamd.com</a>.
+              Report suspected adverse events to <a href="mailto:adverse-events@reservemolecular.com">adverse-events@reservemolecular.com</a>{' '}
+              or call 775-262-9279. Product questions: <a href="mailto:supplements@reservemolecular.com">supplements@reservemolecular.com</a>.
             </p>
           </article>
           <p className="legal-page__cta">

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product) return {}
   const image = supplementImagesRecord[product.slug] || media.shopProduct
   return pageMetadata({
-    title: `${product.name} | Nexa Rx Supplements`,
+    title: `${product.name}`,
     description: `${product.name} dietary supplement details, pricing, and recurring terms.`,
     path: `/supplements/${product.slug}`,
     image: image.src,

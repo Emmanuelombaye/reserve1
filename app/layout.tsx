@@ -1,72 +1,54 @@
-import { Manrope, Cormorant_Garamond } from 'next/font/google'
 import '../src/index.css'
 import { siteUrl } from '../lib/site-data'
-
-const manrope = Manrope({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body-face',
-  weight: ['400', '500', '600', '700', '800'],
-})
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-display-face',
-  weight: ['500', '600'],
-  style: ['normal', 'italic'],
-})
 
 const isPreview = process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production'
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Nexa Rx | Personalized Telehealth Care',
+  title: {
+    default: 'RSRV',
+    template: '%s · RSRV',
+  },
   description:
-    'Connect online with licensed clinicians for medical weight management, hormone health, and select prescription therapies. Availability varies by state.',
+    'Clinician-directed protocols. Compounded in the US, one patient at a time.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Nexa Rx | Personalized Telehealth Care',
-    description: 'Licensed clinical care. Clear pricing. Qualified U.S. pharmacy fulfillment.',
+    title: 'RSRV',
+    description: 'Clinician-directed. US-compounded. Tested and verified.',
     url: siteUrl,
-    siteName: 'Nexa Rx',
+    siteName: 'RSRV',
     type: 'website',
     images: [
       {
         url: '/images/hero-home-desktop.webp',
         width: 1600,
         height: 900,
-        alt: 'Nexa Rx telehealth care',
+        alt: 'RSRV',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexa Rx | Personalized Telehealth Care',
-    description: 'Licensed clinical care. Clear pricing. Qualified U.S. pharmacy fulfillment.',
+    title: 'RSRV',
+    description: 'Clinician-directed. US-compounded. Tested and verified.',
     images: ['/images/hero-home-desktop.webp'],
   },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' },
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
     shortcut: '/favicon.ico',
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }],
   },
-  authors: [{ name: 'Ombaye' }],
-  creator: 'Ombaye',
-  publisher: 'Nexa Rx',
+  publisher: 'Reserve Molecular',
   robots: isPreview ? { index: false, follow: true } : { index: true, follow: true },
 }
 
 export const viewport = {
-  themeColor: '#0F1722',
+  themeColor: '#0B0B0D',
   width: 'device-width',
   initialScale: 1,
 }
@@ -75,15 +57,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'MedicalBusiness'],
-    name: 'Nexa Rx',
+    name: 'RSRV',
+    alternateName: 'Reserve Molecular',
     url: siteUrl,
     description:
-      'Personalized telehealth for medical weight management, hormone health, and select prescription therapies.',
+      'Clinician-directed protocols. Compounded in the US, one patient at a time.',
     medicalSpecialty: 'Telemedicine',
   }
 
   return (
-    <html lang="en" className={`${manrope.variable} ${cormorant.variable}`}>
+    <html lang="en">
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         {children}

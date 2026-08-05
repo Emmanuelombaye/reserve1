@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PREVIEW_USER = 'nexa'
-const PREVIEW_REALM = 'Nexa Rx Preview'
+const PREVIEW_USER = 'RSRV'
+const PREVIEW_REALM = 'RSRV Preview'
 
 function isPreviewEnvironment() {
   return process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production'

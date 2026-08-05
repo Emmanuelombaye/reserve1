@@ -7,8 +7,8 @@ import { media } from '../../lib/media'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'FAQ | Nexa Rx',
-  description: 'Answers to peptide, pricing, eligibility, supplement, and privacy questions for Nexa Rx care programs.',
+  title: 'FAQ',
+  description: 'Answers to peptide, pricing, eligibility, supplement, and privacy questions for RSRV care programs.',
   path: '/faq',
   image: media.faqHero.src,
 })

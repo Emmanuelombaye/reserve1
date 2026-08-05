@@ -2,7 +2,7 @@ import ShopSubPage from '../../../components/ShopSubPage'
 import { pageMetadata } from '../../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Supplement Bundles | Nexa Rx Shop',
+  title: 'Supplement Bundles',
   description: 'Curated dietary supplement bundles for everyday wellness support.',
   path: '/supplements/bundles',
 })

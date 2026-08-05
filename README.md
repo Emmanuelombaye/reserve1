@@ -1,11 +1,11 @@
-# Nexa Rx
+# RSRV
 
 Personalized telehealth for medical weight management, hormone health, and select prescription therapies.
 
-Nexa Rx connects eligible adults with licensed clinicians, shows clear pricing before enrollment, and fulfills prescriptions through qualified U.S. pharmacy partners. Dietary supplements are sold in a separate non-prescription shop lane.
+RSRV connects eligible adults with licensed clinicians, shows clear pricing before enrollment, and fulfills prescriptions through qualified U.S. pharmacy partners. Dietary supplements are sold in a separate non-prescription shop lane.
 
 **Organization:** [Rangel Holdings](https://github.com/Rangel-holdings)  
-**Repository:** [github.com/Rangel-holdings/nexa](https://github.com/Rangel-holdings/nexa)
+**Repository:** [github.com/Rangel-holdings/RSRV](https://github.com/Rangel-holdings/RSRV)
 
 ## Stack
 
@@ -98,11 +98,11 @@ Re-audit before enabling paid traffic or third-party analytics.
 
 ## Deploy (Vercel)
 
-1. Import [Rangel-holdings/nexa](https://github.com/Rangel-holdings/nexa) in Vercel
+1. Import [Rangel-holdings/RSRV](https://github.com/Rangel-holdings/RSRV) in Vercel
 2. Framework: **Next.js**
 3. Build command: `npm run build`
 4. Keep preview deployments noindexed until claims, pricing, and clinical pathways are approved
-5. Set `PREVIEW_PASSWORD` in Vercel for preview deployments to enable HTTP Basic Auth (user: `nexa`)
+5. Set `PREVIEW_PASSWORD` in Vercel for preview deployments to enable HTTP Basic Auth (user: `RSRV`)
 
 ## Project layout
 

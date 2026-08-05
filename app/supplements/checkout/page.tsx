@@ -7,8 +7,8 @@ import { media } from '../../../lib/media'
 import { pageMetadata } from '../../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Supplements Checkout | Nexa Rx',
-  description: 'Mock checkout flow for Nexa Rx supplements with recurring billing disclosures.',
+  title: 'Supplements Checkout',
+  description: 'Mock checkout flow for RSRV supplements with recurring billing disclosures.',
   path: '/supplements/checkout',
   image: media.shopProduct.src,
 })

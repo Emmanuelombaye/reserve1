@@ -4,9 +4,9 @@ import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Privacy Policy | Nexa Rx',
+  title: 'Privacy Policy',
   description:
-    'How Nexa Rx collects, uses, and protects personal and health-related information across the marketing site, clinical portal, and shop.',
+    'How RSRV collects, uses, and protects personal and health-related information across the marketing site, clinical portal, and shop.',
   path: '/privacy',
 })
 
@@ -19,7 +19,7 @@ export default function Page() {
           <p className="eyebrow">Legal</p>
           <h1>Privacy Policy</h1>
           <p className="lede">
-            This policy explains how Nexa Rx handles information on the public marketing site, in the secure clinical
+            This policy explains how RSRV handles information on the public marketing site, in the secure clinical
             portal, and in the separate supplement shop.
           </p>
           <p className="hero__stats-note">Last updated: July 22, 2026</p>
@@ -29,7 +29,7 @@ export default function Page() {
           <article>
             <h2>1. Who we are</h2>
             <p>
-              Nexa Rx is a telehealth platform that connects eligible adults with licensed clinicians for medical weight
+              RSRV is a telehealth platform that connects eligible adults with licensed clinicians for medical weight
               management, hormone health, and select prescription therapies. Dietary supplements are sold in a separate
               non-prescription shop lane.
             </p>
@@ -93,16 +93,16 @@ export default function Page() {
             <h2>7. Your choices</h2>
             <p>
               You may request access, correction, or deletion of personal information where applicable by contacting{' '}
-              <a href="mailto:privacy@nexamd.com">privacy@nexamd.com</a>. Clinical record requests may follow additional
+              <a href="mailto:privacy@reservemolecular.com">privacy@reservemolecular.com</a>. Clinical record requests may follow additional
               healthcare procedures.
             </p>
           </article>
           <article>
             <h2>8. Contact</h2>
             <p>
-              Privacy questions: <a href="mailto:privacy@nexamd.com">privacy@nexamd.com</a>
+              Privacy questions: <a href="mailto:privacy@reservemolecular.com">privacy@reservemolecular.com</a>
               <br />
-              Product or adverse-event questions for supplements: <a href="mailto:adverse-events@nexamd.com">adverse-events@nexamd.com</a>
+              Product or adverse-event questions for supplements: <a href="mailto:adverse-events@reservemolecular.com">adverse-events@reservemolecular.com</a>
             </p>
           </article>
           <p className="legal-page__cta">

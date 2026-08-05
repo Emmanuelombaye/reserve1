@@ -7,7 +7,7 @@ import { media } from '../../lib/media'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Quality & Safety | Nexa Rx',
+  title: 'Quality & Safety',
   description:
     'Clear standards for licensed clinical care, pharmacy fulfillment, secure portal intake, and supplement separation.',
   path: '/quality-and-safety',
@@ -24,7 +24,7 @@ export default function Page() {
             <p className="eyebrow">Quality &amp; Safety</p>
             <h1>Clear standards for every part of care.</h1>
             <p className="lede">
-              Nexa Rx connects patients with licensed clinicians and qualified U.S. pharmacy partners, and we explain
+              RSRV connects patients with licensed clinicians and qualified U.S. pharmacy partners, and we explain
               pricing and next steps before enrollment.
             </p>
             <div className="hero__cta">

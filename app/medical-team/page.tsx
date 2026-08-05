@@ -7,8 +7,8 @@ import { media } from '../../lib/media'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Medical Team | Nexa Rx',
-  description: 'Licensed clinicians, care coordination, and pharmacy partnerships behind Nexa Rx patient-first standards.',
+  title: 'Medical Team',
+  description: 'Licensed clinicians, care coordination, and pharmacy partnerships behind RSRV patient-first standards.',
   path: '/medical-team',
   image: media.medicalTeamHero.src,
 })
@@ -23,7 +23,7 @@ export default function Page() {
             <p className="eyebrow">Medical Team</p>
             <h1>Licensed clinicians, patient-first standards.</h1>
             <p className="lede">
-              Nexa Rx connects eligible adults with licensed clinicians who evaluate symptoms, history, and labs when
+              RSRV connects eligible adults with licensed clinicians who evaluate symptoms, history, and labs when
               required before making treatment decisions.
             </p>
             <div className="hero__cta">
@@ -65,7 +65,7 @@ export default function Page() {
             <h2>Licensure &amp; transparency</h2>
             <p>
               Clinician identities, credentials, and state licensure are confirmed inside the secure clinical portal
-              during evaluation. Prescription treatment is not guaranteed. Nexa Rx is a care platform — not a pharmacy.
+              during evaluation. Prescription treatment is not guaranteed. RSRV is a care platform — not a pharmacy.
             </p>
             <p style={{ marginTop: '0.75rem' }}>
               Named clinician profiles will appear here as the provider network is published for each state and program.

@@ -2,8 +2,8 @@ import ShopSubPage from '../../../components/ShopSubPage'
 import { pageMetadata } from '../../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Order Support | Nexa Rx Shop',
-  description: 'Order support for Nexa Rx supplement purchases, shipping, and returns.',
+  title: 'Order Support',
+  description: 'Order support for RSRV supplement purchases, shipping, and returns.',
   path: '/supplements/order-support',
 })
 

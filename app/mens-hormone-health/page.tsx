@@ -6,7 +6,7 @@ import { pageMetadata } from '../../lib/seo'
 const program = programs.find((item) => item.slug === 'mens-hormone-health')!
 
 export const metadata = pageMetadata({
-  title: "Men's Hormone Health | Nexa Rx",
+  title: "Men's Hormone Health",
   description: 'Testosterone evaluation and care with licensed clinicians, labs, and clear pricing before enrollment.',
   path: '/mens-hormone-health',
   image: media.trt.src,

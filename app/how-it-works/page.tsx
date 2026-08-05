@@ -8,8 +8,8 @@ import { media, howItWorksStepImages } from '../../lib/media'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'How It Works | Nexa Rx',
-  description: 'See the six-step Nexa Rx care path from eligibility to pharmacy fulfillment and ongoing support.',
+  title: 'How It Works',
+  description: 'See the six-step RSRV care path from eligibility to pharmacy fulfillment and ongoing support.',
   path: '/how-it-works',
   image: media.howItWorksHero.src,
 })

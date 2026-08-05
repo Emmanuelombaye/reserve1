@@ -11,7 +11,7 @@ import { media } from '../../lib/media'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Pricing | Nexa Rx',
+  title: 'Pricing',
   description:
     'Transparent telehealth pricing with $0 to start, itemized enrollment summaries, and program-specific inclusions before you pay.',
   path: '/pricing',

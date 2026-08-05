@@ -1,4 +1,4 @@
-﻿/** Central media map — WebP assets optimized for cache + next/image. */
+/** Central media map — telehealth WebPs with RSRV brand treatment in CSS. */
 
 export const media = {
   heroHomeDesktop: {
@@ -39,7 +39,7 @@ export const media = {
   },
   careJourney: {
     src: '/images/care-journey.webp',
-    alt: 'Nexa Rx care journey overview',
+    alt: 'RSRV care journey overview',
     width: 1600,
     height: 900,
   },

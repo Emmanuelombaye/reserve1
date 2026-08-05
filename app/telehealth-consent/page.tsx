@@ -4,9 +4,9 @@ import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Telehealth Consent | Nexa Rx',
+  title: 'Telehealth Consent',
   description:
-    'Understand how Nexa Rx telehealth evaluation works, including clinical portal intake, limitations, and patient responsibilities.',
+    'Understand how RSRV telehealth evaluation works, including clinical portal intake, limitations, and patient responsibilities.',
   path: '/telehealth-consent',
 })
 
@@ -21,7 +21,7 @@ export default function Page() {
           <p className="eyebrow">Clinical pathway</p>
           <h1>Telehealth Consent</h1>
           <p className="lede">
-            Before clinical evaluation, review how online care works at Nexa Rx — including what happens in the secure
+            Before clinical evaluation, review how online care works at RSRV — including what happens in the secure
             portal, what clinicians decide, and what is not guaranteed.
           </p>
           <p className="hero__stats-note">Last updated: July 22, 2026</p>
@@ -70,7 +70,7 @@ export default function Page() {
           <article>
             <h2>6. Emergencies</h2>
             <p>
-              Nexa Rx is not for emergencies. If you have chest pain, trouble breathing, severe allergic reaction,
+              RSRV is not for emergencies. If you have chest pain, trouble breathing, severe allergic reaction,
               suicidal thoughts, or any emergency, call 911 or go to the nearest emergency department.
             </p>
           </article>

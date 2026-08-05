@@ -5,8 +5,8 @@ import { pageMetadata } from '../../lib/seo'
 import { media } from '../../lib/media'
 
 export const metadata = pageMetadata({
-  title: 'Check Eligibility | Nexa Rx',
-  description: 'Start with a short eligibility check for Nexa Rx programs. Program, state, and contact only.',
+  title: 'Check Eligibility',
+  description: 'Start with a short eligibility check for RSRV programs. Program, state, and contact only.',
   path: '/check-eligibility',
   image: media.eligibilitySide.src,
 })

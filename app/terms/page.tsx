@@ -4,9 +4,9 @@ import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Terms of Service | Nexa Rx',
+  title: 'Terms of Service',
   description:
-    'Terms governing use of the Nexa Rx website, eligibility checks, clinical care pathway, and separate supplement shop.',
+    'Terms governing use of the RSRV website, eligibility checks, clinical care pathway, and separate supplement shop.',
   path: '/terms',
 })
 
@@ -19,7 +19,7 @@ export default function Page() {
           <p className="eyebrow">Legal</p>
           <h1>Terms of Service</h1>
           <p className="lede">
-            These terms govern your use of the Nexa Rx website, eligibility tools, clinical care pathway, and separate
+            These terms govern your use of the RSRV website, eligibility tools, clinical care pathway, and separate
             dietary supplement shop.
           </p>
           <p className="hero__stats-note">Last updated: July 22, 2026</p>
@@ -29,14 +29,14 @@ export default function Page() {
           <article>
             <h2>1. Agreement</h2>
             <p>
-              By using nexamd.com or related Nexa Rx services, you agree to these Terms and our{' '}
+              By using reservemolecular.com or related RSRV services, you agree to these Terms and our{' '}
               <Link href="/privacy">Privacy Policy</Link>. If you do not agree, do not use the site.
             </p>
           </article>
           <article>
-            <h2>2. What Nexa Rx is — and is not</h2>
+            <h2>2. What RSRV is — and is not</h2>
             <p>
-              Nexa Rx is a telehealth care platform that connects eligible adults with licensed clinicians. Nexa Rx is
+              RSRV is a telehealth care platform that connects eligible adults with licensed clinicians. RSRV is
               not a pharmacy, hospital, or emergency service. Prescriptions are fulfilled by independently licensed U.S.
               pharmacy partners when clinically appropriate.
             </p>
@@ -90,7 +90,7 @@ export default function Page() {
           <article>
             <h2>9. Contact</h2>
             <p>
-              Questions: <a href="mailto:support@nexamd.com">support@nexamd.com</a>
+              Questions: <a href="mailto:support@reservemolecular.com">support@reservemolecular.com</a>
             </p>
           </article>
           <p className="legal-page__cta">

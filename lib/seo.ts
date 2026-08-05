@@ -4,7 +4,7 @@ const defaultOgImage = {
   url: '/images/hero-home-desktop.webp',
   width: 1600,
   height: 900,
-  alt: 'Nexa Rx personalized telehealth care',
+  alt: 'RSRV',
 }
 
 interface PageMetadataOptions {
@@ -25,7 +25,7 @@ export function pageMetadata({ title, description, path, image = defaultOgImage 
       title,
       description,
       url: `${siteUrl}${path}`,
-      siteName: 'Nexa Rx',
+      siteName: 'RSRV',
       type: 'website',
       images: [ogImage],
     },
