@@ -1993,10 +1993,12 @@ ul { list-style: none; }
   position: relative;
   isolation: isolate;
   overflow: clip;
+  background-color: #0B0B0D !important;
   background:
-    radial-gradient(ellipse at 12% 18%, rgba(194, 161, 95, 0.15), transparent 45%),
-    radial-gradient(ellipse at 88% 82%, rgba(23, 23, 26, 0.8), transparent 50%),
-    var(--navy-deep);
+    radial-gradient(ellipse at 12% 18%, rgba(194, 161, 95, 0.2), transparent 50%),
+    radial-gradient(ellipse at 88% 82%, rgba(23, 23, 26, 0.95), transparent 60%),
+    #0B0B0D !important;
+  color: #F3F1EC !important;
   padding: clamp(4rem, 8vw, 6rem) 0;
 }
 
@@ -2025,13 +2027,14 @@ ul { list-style: none; }
 }
 
 .faq__intro h2 {
-  color: var(--bone);
+  color: #FFFFFF !important;
   text-wrap: balance;
   margin-bottom: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .faq__intro .section__sub {
-  color: rgba(220, 218, 212, 0.82);
+  color: #DCDAD4 !important;
   max-width: 26rem;
   line-height: 1.6;
 }
@@ -2047,13 +2050,13 @@ ul { list-style: none; }
 .faq__text-link {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--teal-deep);
+  color: #C2A15F;
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
 
 .faq__text-link:hover {
-  color: var(--navy);
+  color: #FFFFFF;
 }
 
 .faq__badge {
@@ -2062,13 +2065,13 @@ ul { list-style: none; }
   gap: 0.45rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: rgba(194, 161, 95, 0.12);
-  border: 1px solid rgba(194, 161, 95, 0.28);
+  background: rgba(194, 161, 95, 0.22) !important;
+  border: 1px solid rgba(194, 161, 95, 0.45) !important;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: #E5C378 !important;
   margin-bottom: 0.85rem;
 }
 
@@ -2076,7 +2079,7 @@ ul { list-style: none; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--teal);
+  background: #E5C378 !important;
 }
 
 .faq__support-card {
