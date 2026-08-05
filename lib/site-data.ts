@@ -10,28 +10,28 @@ export const treatmentLinks = [
 export const shopLinks = [
   { href: '/supplements', label: 'All Supplements' },
   { href: '/supplements/bundles', label: 'Bundles' },
-  { href: '/supplements/subscribe-and-save', label: 'Subscribe & Save' },
+  { href: '/supplements/subscribe-and-save', label: 'Standing Reserve' },
   { href: '/supplements/order-support', label: 'Order Support' },
 ]
 
 const priceTag = '$0 to start'
-const priceSubline = 'Itemized quote before enrollment'
+const priceSubline = 'Itemized quote before allocation'
 const priceNote =
-  'Final price depends on prescribed therapy, dosage, pharmacy, shipping, and state. All charges and recurring terms are shown before enrollment.'
+  'Final price depends on prescribed therapy, dosage, pharmacy, shipping, and state. All charges and recurring terms are shown before allocation.'
 
 export const pricingModel = {
   eyebrow: 'How pricing works',
   headline: 'See every charge before you enroll.',
   lede:
-    'RSRV separates clinical program care from partner pharmacy fulfillment. You review a full itemized summary — due today, recurring terms, labs, and supplies — before confirming enrollment.',
+    'RSRV separates clinical protocol care from partner pharmacy fulfillment. You review a full itemized summary — due today, recurring terms, labs, and supplies — before confirming allocation.',
   principles: [
     {
       title: '$0 to begin',
-      text: 'Start eligibility at no cost. You are not charged for ongoing program care until you review and accept your enrollment summary.',
+      text: 'Start eligibility at no cost. You are not charged for ongoing protocol care until you review and accept your allocation summary.',
     },
     {
       title: 'Pay only if prescribed',
-      text: 'If a clinician determines you are not eligible, you are not enrolled in ongoing program billing.',
+      text: 'If a clinician determines you are not eligible, you are not enrolled in ongoing protocol care.',
     },
     {
       title: 'Itemized before checkout',
@@ -39,7 +39,7 @@ export const pricingModel = {
     },
     {
       title: 'No hidden renewals',
-      text: 'Subscription frequency, renewal amount, and how to cancel are shown before payment — the same standard used by leading telehealth platforms.',
+      text: 'Allocation frequency, renewal amount, and how to manage standing reserve are shown before payment — the same standard used by leading telehealth platforms.',
     },
   ],
   buckets: [
