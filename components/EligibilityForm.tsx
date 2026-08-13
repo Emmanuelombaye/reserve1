@@ -4,6 +4,12 @@ import { useEffect, useMemo, useRef, useState, type FormEvent, type CSSPropertie
 import { useRouter } from 'next/navigation'
 import { getProgramAvailabilityStatus, programs } from '../lib/site-data'
 import { programImages, media } from '../lib/media'
+import {
+  getActiveScreeningQuestions,
+  isScreeningComplete,
+  questionIsDisqualified,
+  screeningHasDisqualifier,
+} from '../lib/intake'
 import SiteImage from './SiteImage'
 
 const availabilityMessages = {
@@ -32,6 +38,9 @@ export default function EligibilityForm() {
     city: '',
     state: '',
     zip: '',
+    height: '',
+    weight: '',
+    answers: {} as Record<string, string>,
     hasConditions: 'No, none apply',
     agreeConsent: false,
     authorizeReview: false,
@@ -77,11 +86,30 @@ export default function EligibilityForm() {
     return getProgramAvailabilityStatus(selectedProgram.slug, form.state)
   }, [selectedProgram, form.state])
 
+  const screeningIntake = useMemo(
+    () => ({
+      answers: form.answers,
+      sexAtBirth: form.sex,
+    }),
+    [form.answers, form.sex],
+  )
+  const screeningQuestions = useMemo(
+    () => getActiveScreeningQuestions(screeningIntake),
+    [screeningIntake],
+  )
+  const setAnswer = (id: string, value: string) => {
+    setForm((prev) => ({ ...prev, answers: { ...prev.answers, [id]: value } }))
+  }
+
   const validateStep = (step: number) => {
     setError('')
     if (step === 1) {
       if (!form.email.trim() || !form.firstName.trim() || !form.lastName.trim() || !form.phone.trim() || !form.dob) {
         setError('Please fill in all required Patient Information fields (Email, First Name, Last Name, Phone, DOB).')
+        return false
+      }
+      if (!form.height.trim() || !form.weight.trim()) {
+        setError('Enter height and weight.')
         return false
       }
     } else if (step === 2) {
@@ -94,8 +122,12 @@ export default function EligibilityForm() {
         return false
       }
     } else if (step === 3) {
-      if (!form.hasConditions) {
-        setError('Please select whether any medical conditions apply to you.')
+      if (!isScreeningComplete(screeningIntake)) {
+        if (screeningHasDisqualifier(screeningIntake)) {
+          setError('Based on your answers, a physician must review before you can continue. Contact support.')
+          return false
+        }
+        setError('Please answer all medical screening questions to continue.')
         return false
       }
     } else if (step === 4) {
@@ -125,6 +157,8 @@ export default function EligibilityForm() {
     const fullIntakeData = {
       ...form,
       name: `${form.firstName} ${form.lastName}`.trim(),
+      sexAtBirth: form.sex,
+      clinicalAnswers: form.answers,
       at: new Date().toISOString(),
     }
 
@@ -305,6 +339,26 @@ export default function EligibilityForm() {
                       </label>
                     </div>
                   </div>
+
+                  <label className="flow-field">
+                    Height *
+                    <input
+                      value={form.height}
+                      onChange={(e) => setForm({ ...form, height: e.target.value })}
+                      placeholder="5ft 10in"
+                      required
+                    />
+                  </label>
+                  <label className="flow-field">
+                    Weight (lbs) *
+                    <input
+                      type="number"
+                      inputMode="numeric"
+                      value={form.weight}
+                      onChange={(e) => setForm({ ...form, weight: e.target.value })}
+                      required
+                    />
+                  </label>
                 </div>
               </div>
             )}
@@ -376,59 +430,52 @@ export default function EligibilityForm() {
               </div>
             )}
 
-            {/* Step 3 — Medical Screening */}
             {currentStep === 3 && (
               <div className="flow-step-body animate-fade-in">
                 <h3 className="flow-step-title">Step 3 — Medical Screening</h3>
-
-                <div className="flow-screening-box">
-                  <p className="flow-screening-question">
-                    Do any of the following conditions apply to you? *
-                  </p>
-                  <ul className="flow-screening-list">
-                    <li>History of medullary thyroid carcinoma or MEN 2 syndrome</li>
-                    <li>Active pregnancy, nursing, or planning pregnancy within 60 days</li>
-                    <li>Severe active liver, kidney, or cardiovascular failure</li>
-                    <li>Uncontrolled diabetes or history of severe pancreatitis</li>
-                  </ul>
-
-                  <div className="flow-radio-stack">
-                    <label
-                      className={`flow-radio-card ${
-                        form.hasConditions === 'Yes, one or more' ? 'is-selected' : ''
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="hasConditions"
-                        value="Yes, one or more"
-                        checked={form.hasConditions === 'Yes, one or more'}
-                        onChange={(e) => setForm({ ...form, hasConditions: e.target.value })}
-                      />
-                      <div className="flow-radio-content">
-                        <strong>Yes, one or more</strong>
-                        <span>Requires custom clinical evaluation before proceeding</span>
+                <p className="lede" style={{ marginBottom: '1rem' }}>
+                  Answer each question carefully. Some responses require physician review before you can continue.
+                </p>
+                <div className="flow-q-list">
+                  {screeningQuestions.map((q) => {
+                    const value = form.answers[q.id] || ''
+                    const disqualified = questionIsDisqualified(q, value)
+                    return (
+                      <div key={q.id} className={`flow-q ${disqualified ? 'flow-q--warn' : ''}`}>
+                        <p className="flow-q__prompt">
+                          {q.question}
+                          {q.required ? ' *' : ''}
+                        </p>
+                        {q.type === 'boolean' ? (
+                          <div className="flow-radio-group">
+                            {(['yes', 'no'] as const).map((opt) => (
+                              <button
+                                key={opt}
+                                type="button"
+                                className={`flow-radio-tile ${value === opt ? 'is-selected' : ''}`}
+                                onClick={() => setAnswer(q.id, opt)}
+                              >
+                                <span>{opt === 'yes' ? 'Yes' : 'No'}</span>
+                              </button>
+                            ))}
+                          </div>
+                        ) : q.type === 'select' ? (
+                          <select value={value} onChange={(e) => setAnswer(q.id, e.target.value)}>
+                            <option value="">—</option>
+                            {(q.options || []).map((opt) => (
+                              <option key={opt} value={opt}>{opt}</option>
+                            ))}
+                          </select>
+                        ) : (
+                          <input
+                            type={q.type === 'number' ? 'number' : 'text'}
+                            value={value}
+                            onChange={(e) => setAnswer(q.id, e.target.value)}
+                          />
+                        )}
                       </div>
-                    </label>
-
-                    <label
-                      className={`flow-radio-card ${
-                        form.hasConditions === 'No, none apply' ? 'is-selected' : ''
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="hasConditions"
-                        value="No, none apply"
-                        checked={form.hasConditions === 'No, none apply'}
-                        onChange={(e) => setForm({ ...form, hasConditions: e.target.value })}
-                      />
-                      <div className="flow-radio-content">
-                        <strong>No, none apply</strong>
-                        <span>Cleared for standard prescription intake review</span>
-                      </div>
-                    </label>
-                  </div>
+                    )
+                  })}
                 </div>
               </div>
             )}
