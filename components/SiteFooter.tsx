@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FooterTrustBadges } from './FooterTrustBadges'
 import { shopLinks, treatmentLinks } from '../lib/site-data'
 
 const legalLinks = [
@@ -63,6 +64,9 @@ export default function SiteFooter() {
             </Link>
           ))}
         </div>
+      </div>
+      <div className="container">
+        <FooterTrustBadges hipaaHref="/privacy" />
       </div>
       <div className="container footer__bottom">
         <p>&copy; {new Date().getFullYear()} Reserve Molecular. All rights reserved.</p>
